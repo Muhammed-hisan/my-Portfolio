@@ -1,0 +1,802 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+    <title>MUHAMMED HISAN P - Deep Learning Engineer & Data Scientist</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Inter:wght@100..900&display=swap');
+        body { font-family: 'Inter', sans-serif; background-color: #030712; }
+        ::-webkit-scrollbar { width: 8px; }
+        ::-webkit-scrollbar-thumb { background: #06b6d4; border-radius: 4px; }
+        ::-webkit-scrollbar-track { background: #1f2937; }
+        .skill-bar-segment { transition: all .5s cubic-bezier(.4,0,.2,1); position: relative; overflow: hidden; box-shadow: 0 0 10px rgba(6,182,212,.2); }
+        .skill-bar-segment:hover { transform: scale(1.02); box-shadow: 0 0 20px rgba(6,182,212,.6), 0 0 40px rgba(6,182,212,.3); z-index: 10; }
+        .skill-text:hover { text-shadow: 0 0 5px #a5f3fc; }
+        .project-card:hover, .certificate-card:hover { transform: translateY(-8px); box-shadow: 0 20px 25px -5px rgba(6,182,212,.4), 0 8px 10px -6px rgba(6,182,212,.2); }
+        .hidden-content { display: none; }
+        .media-container { position: relative; width: 100%; padding-top: 56.25%; overflow: hidden; cursor: default !important; }
+        .media-container img, .media-container iframe { position: absolute; top:0; left:0; width:100%; height:100%; object-fit:cover; transition: opacity .3s ease-in-out; }
+        .experience-card { transition: background-color .3s, transform .3s; }
+        .experience-card:hover { background-color: #1f2937; transform: scale(1.05); }
+        .modal { position: fixed; z-index: 1000; left:0; top:0; width:100%; height:100%; overflow:auto; background-color: rgba(0,0,0,.9); display:none; align-items:center; justify-content:center; }
+        .modal-content { margin:auto; display:block; width:90%; max-width:900px; max-height:90vh; object-fit:contain; }
+        .close { position:absolute; top:15px; right:35px; color:#f1f1f1; font-size:40px; font-weight:bold; transition:.3s; }
+        .close:hover, .close:focus { color:#bbb; text-decoration:none; cursor:pointer; }
+
+        /* Skill detail panel */
+        #skill-detail-panel {
+            display: none;
+            background: rgba(15, 23, 42, 0.95); /* gray-900 with opacity */
+            border: 1px solid rgba(56, 189, 248, 0.06);
+            box-shadow: 0 20px 50px rgba(2,6,23,0.6);
+            border-radius: 12px;
+            padding: 22px;
+            margin-top: 24px;
+            animation: slideIn .28s ease-out;
+        }
+
+        @keyframes slideIn {
+            from { transform: translateY(12px); opacity: 0; }
+            to { transform: translateY(0); opacity: 1; }
+        }
+
+        .skill-list { column-count: 1; gap: 18px; }
+        @media (min-width: 720px) {
+            .skill-list { column-count: 2; }
+        }
+        .skill-section-title { color: #06b6d4; font-weight: 700; font-size: 1.05rem; }
+        .skill-close-btn { background: transparent; border: 1px solid rgba(99,102,241,.06); color: #93c5fd; padding: .4rem .6rem; border-radius: 8px; }
+    </style>
+</head>
+<body class="bg-gray-950 text-gray-100 antialiased">
+
+    <!-- Header & nav (unchanged) -->
+    <header class="sticky top-0 z-50 bg-gray-950/90 backdrop-blur-sm shadow-xl shadow-gray-900/50">
+        <nav class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 py-4 flex justify-between items-center">
+            <div class="text-2xl font-extrabold text-cyan-400 tracking-wider">MUHAMMED HISAN P</div>
+            <div class="space-x-4 md:space-x-8 hidden sm:flex text-lg">
+                <a href="#about" class="text-gray-300 hover:text-cyan-400 transition duration-300">About</a>
+                <a href="#skills" class="text-gray-300 hover:text-cyan-400 transition duration-300">Expertise</a>
+                <a href="#projects" class="text-gray-300 hover:text-cyan-400 transition duration-300">Projects</a>
+                <a href="#work-experience" class="text-gray-300 hover:text-cyan-400 transition duration-300">Experience</a>
+                <a href="#certificates" class="text-gray-300 hover:text-cyan-400 transition duration-300">Certificates</a>
+                <a href="#contact" class="text-gray-300 hover:text-cyan-400 transition duration-300">Contact</a>
+            </div>
+            <button class="sm:hidden text-gray-300 hover:text-cyan-400 focus:outline-none">
+                <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"></path></svg>
+            </button>
+        </nav>
+    </header>
+
+    <main class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 py-12 md:py-20">
+
+        <!-- About/Hero (unchanged, trimmed for brevity) -->
+        <section id="about" class="mb-24 pt-10">
+            <div class="flex flex-col md:flex-row items-center md:justify-between space-y-8 md:space-y-0">
+                <div class="md:w-3/5">
+                    <h1 class="text-5xl md:text-7xl font-black mb-4 leading-tight">
+                        <span class="text-white">Machine Learning</span><br class="hidden sm:block"/>
+                        <span class="text-cyan-400 transition duration-500 hover:text-white">Engineer</span> & Data Scientist
+                    </h1>
+                    <p class="text-xl text-gray-400 mb-6">
+                        Expert in designing, training, and deploying scalable Machine Learning models, specializing in Computer Vision and complex AI systems for real-world applications.
+                    </p>
+                    <div class="flex flex-wrap gap-4">
+                        <a href="https://www.linkedin.com/in/muhammed-hisan-84239a267/" target="_blank" class="flex items-center space-x-2 p-3 bg-gray-800 rounded-lg hover:bg-cyan-600 transition duration-300 shadow-md text-white font-medium">
+                            <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 24 24"><path d="M19 0h-14c-2.761 0-5 2.239-5 5v14c0 2.761 2.239 5 5 5h14c2.762 0 5-2.239 5-5v-14c0-2.761-2.239-5-5-5zm-11 19h-3v-11h3v11zm-1.5-12.268c-.966 0-1.75-.79-1.75-1.764s.784-1.764 1.75-1.764 1.75.79 1.75 1.764-.783 1.764-1.75 1.764zm13.5 12.268h-3v-5.604c0-3.368-4-3.359-4 0v5.604h-3v-11h3v1.765c1.396-2.586 7-2.777 7 2.476v6.759z"/></svg>
+                            <span>LinkedIn</span>
+                        </a>
+                        <a href="https://github.com/Muhammed-hisan?tab=repositories" target="_blank" class="flex items-center space-x-2 p-3 bg-gray-800 rounded-lg hover:bg-cyan-600 transition duration-300 shadow-md text-white font-medium">
+                            <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 24 24"><path d="M12 0c-6.626 0-12 5.373-12 12 0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.73.083-.73 1.205.084 1.839 1.237 1.839 1.237 1.07 1.838 2.809 1.305 3.493.998.108-.777.42-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.465-2.38.123-3.221-.108-.271-.482-1.528.103-3.176 0 0 .901-.322 2.956 1.226.856-.237 1.763-.356 2.661-.358.9.002 1.805.121 2.661.358 2.055-1.548 2.955-1.226 2.955-1.226.586 1.648.212 2.905.103 3.176.354.841.465 1.91.465 3.221 0 4.609-2.807 5.624-5.479 5.923.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576 4.773-1.589 8.204-6.085 8.204-11.385 0-6.627-5.373-12-12-12z"/></svg>
+                            <span>GitHub</span>
+                        </a>
+                        <a href="https://www.youtube.com/@MUHAMMEDHISAN-nj2yv" target="_blank" class="flex items-center space-x-2 p-3 bg-gray-800 rounded-lg hover:bg-cyan-600 transition duration-300 shadow-md text-white font-medium">
+                            <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 24 24"><path d="M19.615 3.184c-3.04-1.547-6.08-1.547-9.12 0-2.454 1.248-4.908 2.496-7.362 3.744a2.237 2.237 0 0 0-1.028 2.025v6.088c.002.776.452 1.488 1.168 1.854 2.454 1.248 4.908 2.496 7.362 3.744 3.04 1.547 6.08 1.547 9.12 0 2.454-1.248 4.908-2.496-7.362-3.744a2.237 2.237 0 0 0 1.028-2.025v-6.088c-.002-.776-.452-1.488-1.168-1.854-2.454-1.248-4.908-2.496-7.362-3.744zm-7.615 13.816v-9l7 4.5-7 4.5z"/></svg>
+                            <span>YouTube</span>
+                        </a>
+                    </div>
+                </div>
+
+                <div class="md:w-2/5 flex justify-center md:justify-end">
+                    <img src="https://media.licdn.com/dms/image/v2/D5603AQHEgDt0YsXjLg/profile-displayphoto-scale_400_400/B56ZqgZlTXI0Ag-/0/1763627663139?e=1766016000&v=beta&t=Wm3PbmsS_n1VC-7EWXokhNtbYLcVkovu8Csc3-R3Beg" alt="Muhammed Hisan P Professional Headshot" class="w-64 h-64 rounded-full object-cover border-4 border-cyan-500 shadow-2xl shadow-cyan-500/30" onerror="this.onerror=null; this.src='https://placehold.co/256x256/1f2937/d1d5db?text=Image+Load+Error'"/>
+                </div>
+            </div>
+        </section>
+
+        <!-- Skills & ML Stack (unchanged) -->
+        <section id="skills" class="mb-24 py-12 border-t border-gray-800">
+            <h2 class="text-4xl font-bold text-center mb-12 text-white">Core <span class="text-cyan-400">ML Expertise</span></h2>
+            <div class="bg-gray-800 p-6 md:p-10 rounded-xl shadow-2xl shadow-gray-800/50">
+                <h3 class="text-2xl font-semibold mb-6 text-cyan-400">Machine Learning & Deployment Stack</h3>
+                <div class="space-y-6">
+                    <div class="skill-bar-segment bg-gray-900 rounded-lg p-4 cursor-default">
+                        <h4 class="text-lg font-medium text-gray-200 mb-2 skill-text">🧠 Deep Learning & Machine Learning</h4>
+                        <p class="text-sm text-gray-400 mb-2">PyTorch, Scikit-learn, Model Architecture (CNNs, RNNs, Transformers).</p>
+                        <div class="w-full bg-gray-700 rounded-full h-3"><div class="bg-cyan-500 h-3 rounded-full" style="width:95%"></div></div>
+                    </div>
+                    <div class="skill-bar-segment bg-gray-900 rounded-lg p-4 cursor-default">
+                        <h4 class="text-lg font-medium text-gray-200 mb-2 skill-text">👁️ Computer Vision & Real-Time Processing</h4>
+                        <p class="text-sm text-gray-400 mb-2">OpenCV, Image Segmentation, Object Detection (YOLO), Custom Model Training.</p>
+                        <div class="w-full bg-gray-700 rounded-full h-3"><div class="bg-cyan-500 h-3 rounded-full" style="width:90%"></div></div>
+                    </div>
+                    <div class="skill-bar-segment bg-gray-900 rounded-lg p-4 cursor-default">
+                        <h4 class="text-lg font-medium text-gray-200 mb-2 skill-text">📊 Data Science & Preprocessing</h4>
+                        <p class="text-sm text-gray-400 mb-2">Pandas, NumPy, Matplotlib, Data Cleaning, Statistical Analysis, Feature Engineering.</p>
+                        <div class="w-full bg-gray-700 rounded-full h-3"><div class="bg-cyan-500 h-3 rounded-full" style="width:85%"></div></div>
+                    </div>
+                    <div class="skill-bar-segment bg-gray-900 rounded-lg p-4 cursor-default">
+                        <h4 class="text-lg font-medium text-gray-200 mb-2 skill-text">🤖 AI System Integration & Robotics (Specialization)</h4>
+                        <p class="text-sm text-gray-400 mb-2">ROS2, Gazebo, Embedded AI, Model Optimization for edge devices (a strong differentiator).</p>
+                        <div class="w-full bg-gray-700 rounded-full h-3"><div class="bg-cyan-500 h-3 rounded-full" style="width:80%"></div></div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Projects (unchanged) -->
+        <section id="projects" class="mb-24 py-12 border-t border-gray-800">
+            <h2 class="text-4xl font-bold text-center mb-12 text-white">Featured <span class="text-cyan-400">ML Projects</span></h2>
+            <!-- ... your project cards ... (kept unchanged for brevity) -->
+            <div class="grid md:grid-cols-2 gap-10">
+                <div class="project-card bg-gray-800 p-6 rounded-xl shadow-lg transition duration-500">
+                    <h3 class="text-2xl font-semibold mb-4 text-cyan-400">AI Intergrated Multi-Functional Robotic Pet</h3>
+
+                    <div class="aspect-video bg-gray-900 rounded-lg mb-4">
+                        <iframe
+                            class="w-full h-full rounded-lg"
+                            src="https://www.youtube.com/embed/0_kLzCW2Xdo?si=sSXzc4mAHrlaK3gE"
+                            title="Project Video Demonstration"
+                            frameborder="0"
+                            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                            allowfullscreen>
+                        </iframe>
+                    </div>
+
+                    <!-- Description with Read More/Less Toggle -->
+                    <div id="project-desc-1" class="text-gray-300 mb-4">
+                        <p>
+                            <!-- Visible snippet (e.g., first 2 lines) -->
+                            **AI on Microcontrollers: Edge Computing and Resource Optimization.** This highly challenging engineering project focused on deploying complex Artificial Intelligence and control tasks onto simple, low-cost microcontrollers. The goal was to achieve simultaneous functionality—including obstacle avoidance, voice interaction, and remote control—without relying on high-end hardware such as GPUs, dedicated CPUs, or continuous internet connectivity.
+                        </p>
+                        <div id="full-desc-1" class="hidden-content">
+                            <p class="mt-2">
+                                **Key Technical Achievement:** The success of this project lay in extreme resource optimization and custom algorithm development. By implementing highly efficient, customized AI models and tightly integrating them with embedded systems, I overcame significant hardware limitations (low RAM, minimal processing power) to deliver fully functional, real-time performance.
+                            </p>
+                            <p class="mt-2">
+                                **Skills Demonstrated:** Embedded Programming and Optimization, Edge AI Implementation, System Integration, Creative Problem Solving (developing bespoke techniques to bypass hardware constraints).
+                            </p>
+                        </div>
+                        <button onclick="toggleDescription('1')" class="mt-3 text-cyan-400 hover:text-cyan-200 focus:outline-none text-sm font-semibold">
+                            Read More
+                        </button>
+                    </div>
+                    <a href="https://github.com/Muhammed-hisan?tab=repositories" target="_blank" class="text-sm text-cyan-400 hover:text-cyan-200 transition duration-300 font-medium">View Project Code & Details &rarr;</a>
+                </div>
+
+                <!-- Project 2: EVE robot inspired by the WALL-E -->
+                <div class="project-card bg-gray-800 p-6 rounded-xl shadow-lg transition duration-500">
+                    <h3 class="text-2xl font-semibold mb-4 text-cyan-400">EVE robot inspired by the WALL-E</h3>
+
+                    <!-- Media Container with Hover Events - NO cursor-pointer class used -->
+                    <div
+                        id="media-container-2"
+                        class="media-container bg-gray-900 rounded-lg mb-4"
+                        onmouseover="showVideo('2', 'https://www.youtube.com/embed/-cae_SJo-wE?autoplay=1&loop=1&playlist=-cae_SJo-wE&controls=1')"
+                        onmouseout="showImage('2')"
+                    >
+                        <!-- Initial state: Static Image -->
+                        <img
+                            id="static-image-2"
+                            src="https://media.licdn.com/dms/image/v2/D5622AQF7A6qcMnBFRw/feedshare-shrink_2048_1536/B56ZPah1.LGQAw-/0/1734538126401?e=1766016000&v=beta&t=ZBXahVmvHi1N9TLAyiwnk3k_PAE4P0544Y4F56zmycY"
+                            alt="EVE Robot Screenshot"
+                            class="rounded-lg"
+                            onerror="this.onerror=null; this.src='https://placehold.co/600x400/1f2937/d1d5db?text=Image+Load+Error'"
+                            style="opacity: 1;"
+                        />
+                        <!-- Video element will be dynamically inserted here -->
+                        <div id="video-embed-2"></div>
+                    </div>
+
+                    <!-- Description with Read More/Less Toggle -->
+                    <div id="project-desc-2" class="text-gray-300 mb-4">
+                        <p>
+                            <!-- Visible snippet -->
+                            **Vector (EVE-Inspired) Intelligent Perception Robot.** Inspired by the clean, functional aesthetics of EVE from the WALL-E movie, Vector is a sophisticated, custom-built mobile robot designed to demonstrate advanced intelligent perception and interaction. The robot features a custom-designed, articulated robotic hand for manipulation and a centrally mounted camera/microphone array for real-time environmental processing.
+                        </p>
+                        <div id="full-desc-2" class="hidden-content">
+                            <p class="mt-2">
+                                **Technical Core & Functionality:** Vector operates on a robust foundation of AI and Machine Learning. Key features include **Intelligent Perception** (utilizing ML models for object detection and real-time path planning), **Real-Time Interaction** (processing microphone input for command interpretation), and a **Custom Robotic Hand** for manipulation.
+                            </p>
+                            <p class="mt-2">
+                                **Skills Demonstrated:** Full-Stack Robotics Development, Computer Vision (CV) Application, Real-Time Embedded AI, Mechatronics and Mechanical Design.
+                            </p>
+                        </div>
+                        <button onclick="toggleDescription('2')" class="mt-3 text-cyan-400 hover:text-cyan-200 focus:outline-none text-sm font-semibold">
+                            Read More
+                        </button>
+                    </div>
+                    <a href="https://youtube.com/shorts/-cae_SJo-wE?si=kFFaeA2-H7H4Py5t" target="_blank" class="text-sm text-cyan-400 hover:text-cyan-200 transition duration-300 font-medium">View Project Code & Details &rarr;</a>
+                </div>
+
+                <!-- Project 3: AI ChatBot From Scratch -->
+                <div class="project-card bg-gray-800 p-6 rounded-xl shadow-lg transition duration-500">
+                    <h3 class="text-2xl font-semibold mb-4 text-cyan-400">AI ChatBot From Scratch</h3>
+
+                    <div class="aspect-video bg-gray-900 rounded-lg mb-4 flex items-center justify-center text-gray-400">
+                        <iframe
+                            class="w-full h-full rounded-lg"
+                            src="https://www.youtube.com/embed/YgvzYxL0FUw?si=TTJ41KDX9Lu_qayX"
+                            title="Project Video Demonstration"
+                            frameborder="0"
+                            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                            allowfullscreen>
+                        </iframe>
+                    </div>
+
+                    <!-- Description with Read More/Less Toggle -->
+                    <div id="project-desc-3" class="text-gray-300 mb-4">
+                        <p>
+                            <!-- Visible snippet -->
+                            **Custom Full-Featured Conversational Chatbot.** Developed in 2021, this project is a comprehensive, multi-modal conversational agent built entirely from scratch. It was designed to function not only as an informational assistant but also as a core hub for digital entertainment and basic home automation.
+                        </p>
+                        <div id="full-desc-3" class="hidden-content">
+                            <p class="mt-2">
+                                **Key Functionality and Technical Scope:** The chatbot was engineered to handle three distinct types of operations through a unified interface: **Informational Retrieval** (web and YouTube searches), **Entertainment Control** (playing music), and **Basic Home Automation/IoT** (controlling lights and fans).
+                            </p>
+                            <p class="mt-2">
+                                **Skills Demonstrated:** Natural Language Processing (NLP) Fundamentals, System Integration (APIs/IoT), and Full-Stack Software Development.
+                            </p>
+                        </div>
+                        <button onclick="toggleDescription('3')" class="mt-3 text-cyan-400 hover:text-cyan-200 focus:outline-none text-sm font-semibold">
+                            Read More
+                        </button>
+                    </div>
+                    <a href="https://www.linkedin.com/posts/muhammed-hisan-84239a267_i-made-a-powerful-health-care-robot-with-activity-7275187322101383169-VXae?utm_source=social_share_send&utm_medium=member_desktop_web&rcm=ACoAAEFf9TIBWPol6ds38T8FIWI_H7erly1_J04" target="_blank" class="text-sm text-cyan-400 hover:text-cyan-200 transition duration-300 font-medium">View Project Code & Details &rarr;</a>
+                </div>
+
+                <!-- Project 4: AI Integrated Healthcare Robot -->
+                <div class="project-card bg-gray-800 p-6 rounded-xl shadow-lg transition duration-500">
+                    <h3 class="text-2xl font-semibold mb-4 text-cyan-400">AI Integrated Healthcare Robot</h3>
+
+                    <div class="aspect-video bg-gray-900 rounded-lg mb-4 flex items-center justify-center text-gray-400">
+                        <img
+                            src="https://media.licdn.com/dms/image/v2/D5622AQGeAmqmTYYn6g/feedshare-shrink_480/B56ZPaoUH7GQAY-/0/1734539822475?e=1766016000&v=beta&t=HqzfF-ckW3k67vTKm_jcJtAlbxOOmreM3McKAGQfz3k"
+                            alt="Healthcare Robot Screenshot"
+                            class="w-full h-full object-cover rounded-lg"
+                            onerror="this.onerror=null; this.src='https://placehold.co/600x400/1f2937/d1d5db?text=Image+Load+Error'"
+                        />
+                    </div>
+
+                    <!-- Description with Read More/Less Toggle -->
+                    <div id="project-desc-4" class="text-gray-300 mb-4">
+                        <p>
+                            <!-- Visible snippet -->
+                            **AI Healthcare Robot V2: Autonomous Patient Care and Service.** This V2 iteration represents a significant leap, evolving into a sophisticated, autonomous service platform designed for patient assistance and medicine dispensing. The objective was to leverage advanced AI and Computer Vision to create a reliable and personalized patient care system.
+                        </p>
+                        <div id="full-desc-4" class="hidden-content">
+                            <p class="mt-2">
+                                **Key Technical Features (AI and Autonomy):** Features include **Autonomous Medicine Dispensing** (using scheduling and CV to identify the patient before dispensing) and an **Intelligent Voice Assistant**. The **Computer Vision (Patient Identification)** system ensures a critical layer of safety and personalized service.
+                            </p>
+                            <p class="mt-2">
+                                **Skills Demonstrated:** Complex System Architecture, Real-Time Computer Vision, Software-Hardware Integration, Solution Development.
+                            </p>
+                        </div>
+                        <button onclick="toggleDescription('4')" class="mt-3 text-cyan-400 hover:text-cyan-200 focus:outline-none text-sm font-semibold">
+                            Read More
+                        </button>
+                    </div>
+                    <a href="https://www.linkedin.com/posts/muhammed-hisan-84239a267_i-made-a-powerful-health-care-robot-with-activity-7275187322101383169-VXae?utm_source=social_share_send&utm_medium=member_desktop_web&rcm=ACoAAEFf9TIBWPol6ds38T8FIWI_H7erly1_J04" target="_blank" class="text-sm text-cyan-400 hover:text-cyan-200 transition duration-300 font-medium">View Project Code & Details &rarr;</a>
+                </div>
+
+                <!-- Project 5: ROS2 Moveit arm Control -->
+                <div class="project-card bg-gray-800 p-6 rounded-xl shadow-lg transition duration-500">
+                    <h3 class="text-2xl font-semibold mb-4 text-cyan-400">ROS2 Moveit arm Control</h3>
+
+                    <div class="aspect-video bg-gray-900 rounded-lg mb-4 flex items-center justify-center text-gray-400">
+                        <iframe
+                            class="w-full h-full rounded-lg"
+                            src="https://www.youtube.com/embed/E7Px5d7X-qQ?si=I10hAG27owcRq_Wa"
+                            title="Project Video Demonstration"
+                            frameborder="0"
+                            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                            allowfullscreen>
+                        </iframe>
+                    </div>
+
+                    <!-- Description with Read More/Less Toggle -->
+                    <div id="project-desc-5" class="text-gray-300 mb-4">
+                        <p>
+                            <!-- Visible snippet -->
+                            **Robotic Arm Control: ROS2 and MoveIt Integration.** This project involved the complete development and implementation of a control stack for a robotic arm, leveraging the industry-standard Robot Operating System 2 (ROS2) framework. The primary technical focus was on using MoveIt, the leading open-source software for robotic manipulation, to manage complex motion planning.
+                        </p>
+                        <div id="full-desc-5" class="hidden-content">
+                            <p class="mt-2">
+                                **Key Technical Achievements:** Configured and utilized MoveIt to solve forward and inverse kinematics, enabling the precise and collision-free execution of desired tasks. **ROS2 System Integration** established a stable communication graph, and **Advanced Control** demonstrated proficiency in defining and executing complex multi-joint trajectories.
+                            </p>
+                            <p class="mt-2">
+                                **Skills Demonstrated:** ROS2 (Robot Operating System 2), MoveIt Integration, Kinematics and Trajectory Planning, C++ / Python Development.
+                            </p>
+                        </div>
+                        <button onclick="toggleDescription('5')" class="mt-3 text-cyan-400 hover:text-cyan-200 focus:outline-none text-sm font-semibold">
+                            Read More
+                        </button>
+                    </div>
+                    <a href="https://www.linkedin.com/posts/muhammed-hisan-84239a267_i-made-a-powerful-health-care-robot-with-activity-7275187322101383169-VXae?utm_source=social_share_send&utm_medium=member_desktop_web&rcm=ACoAAEFf9TIBWPol6ds38T8FIWI_H7erly1_J04" target="_blank" class="text-sm text-cyan-400 hover:text-cyan-200 transition duration-300 font-medium">View Project Code & Details &rarr;</a>
+                </div>
+            </div>
+        </section>
+
+        <!-- Work experience section & Technical Skill Summary + view more feature -->
+        <section id="work-experience" class="mb-24 py-12 border-t border-gray-800">
+            <h2 class="text-4xl font-bold text-center mb-12 text-white">Professional <span class="text-cyan-400">Experience</span> & Work History</h2>
+
+            <div class="space-y-8">
+                <div class="job-entry bg-gray-900 p-6 md:p-8 rounded-lg shadow-xl ml-4">
+                    <div class="flex flex-col md:flex-row justify-between items-start md:items-center mb-3">
+                        <div>
+                            <h3 class="text-2xl font-bold text-white">AI / Machine Learning /Robotics</h3>
+                            <p class="text-xl text-cyan-400 font-medium">I HUB ROBOTICS</p>
+                        </div>
+                        <div class="text-sm text-gray-500 mt-2 md:mt-0 md:text-right font-semibold">January 2021 – Present</div>
+                    </div>
+                    <ul class="list-disc space-y-3 text-gray-300 pl-5">
+                        <li>Building ML and RL systems for robotics applications, including navigation, decision-making, and adaptive control.</li>
+                        <li>Developed multiple machine learning models from scratch, as well as using scikit-learn, TensorFlow, and PyTorch for classification, regression, and computer vision tasks.</li>
+                        <li>Implemented reinforcement learning algorithms for robotic movement control, policy optimization, and real-time environment interaction.</li>
+                        <li>Created custom datasets, performed preprocessing pipelines, and deployed optimized models on embedded robotic platforms.</li>
+                        <li>Contributed to AI-based robotic arms, autonomous mobile robots, and sensor-driven intelligent systems used in internal research and client demonstrations.</li>
+                        <li>Collaborated closely with senior engineers on designing scalable AI pipelines and integrating them into ROS2-based robotic architectures.</li>
+                        <p class="text-xl text-cyan-400 font-medium">Summary of AI/ML & Robotics Experience</p>
+                        <li>With over 3 years of hands-on experience in robotics, AI, computer vision, and edge computing, I have developed more than 10+ functional AI robots, including healthcare robots, entertainment robots, and autonomous microcontroller-based systems.</li>
+                    </ul>
+                </div>
+            </div>
+
+            <h3 class="text-3xl font-bold text-center mt-16 mb-8 text-white">
+                <span class="text-cyan-400">Technical Skill</span> Summary
+            </h3>
+            <p class="text-center text-lg text-gray-400 mb-8">Years of practical experience applying core technologies in professional and project environments.</p>
+
+            <!-- Grid of skill cards with View more buttons -->
+            <div class="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-6 gap-6" id="skill-cards-grid">
+                <div class="experience-card bg-gray-900 p-4 rounded-lg shadow-xl flex flex-col items-center">
+                    <span class="text-2xl font-bold text-cyan-400">1.5+</span>
+                    <p class="text-sm text-gray-400 mt-1">Machine learning</p>
+                    <button class="mt-3 text-xs text-cyan-400 hover:text-cyan-200 font-semibold skill-view-btn" data-skill="ml" aria-expanded="false">View more</button>
+                </div>
+
+                <div class="experience-card bg-gray-900 p-4 rounded-lg shadow-xl flex flex-col items-center">
+                    <span class="text-2xl font-bold text-cyan-400">1+</span>
+                    <p class="text-sm text-gray-400 mt-1">Deep Learning</p>
+                    <button class="mt-3 text-xs text-cyan-400 hover:text-cyan-200 font-semibold skill-view-btn" data-skill="dl" aria-expanded="false">View more</button>
+                </div>
+
+                <div class="experience-card bg-gray-900 p-4 rounded-lg shadow-xl flex flex-col items-center">
+                    <span class="text-2xl font-bold text-cyan-400">1+</span>
+                    <p class="text-sm text-gray-400 mt-1">Computer Vision</p>
+                    <button class="mt-3 text-xs text-cyan-400 hover:text-cyan-200 font-semibold skill-view-btn" data-skill="cv" aria-expanded="false">View more</button>
+                </div>
+
+                <div class="experience-card bg-gray-900 p-4 rounded-lg shadow-xl flex flex-col items-center">
+                    <span class="text-2xl font-bold text-cyan-400">8M</span>
+                    <p class="text-sm text-gray-400 mt-1">Reinforcement Learning</p>
+                    <button class="mt-3 text-xs text-cyan-400 hover:text-cyan-200 font-semibold skill-view-btn" data-skill="rl" aria-expanded="false">View more</button>
+                </div>
+
+                <div class="experience-card bg-gray-900 p-4 rounded-lg shadow-xl flex flex-col items-center">
+                    <span class="text-2xl font-bold text-cyan-400">1+</span>
+                    <p class="text-sm text-gray-400 mt-1">Robotics (ROS)</p>
+                    <button class="mt-3 text-xs text-cyan-400 hover:text-cyan-200 font-semibold skill-view-btn" data-skill="ros" aria-expanded="false">View more</button>
+                </div>
+
+                <div class="experience-card bg-gray-900 p-4 rounded-lg shadow-xl flex flex-col items-center">
+                    <span class="text-2xl font-bold text-cyan-400">4+</span>
+                    <p class="text-sm text-gray-400 mt-1">Python</p>
+                    <button class="mt-3 text-xs text-cyan-400 hover:text-cyan-200 font-semibold skill-view-btn" data-skill="embedded" aria-expanded="false">View more</button>
+                </div>
+            </div>
+
+            <!-- Detail panel injected by JS -->
+            <div id="skill-detail-panel" class="max-w-6xl mx-auto mt-8">
+                <div class="flex justify-between items-start mb-3">
+                    <div>
+                        <h4 id="skill-detail-title" class="text-2xl font-bold text-white"></h4>
+                        <p id="skill-detail-sub" class="text-sm text-gray-400 mt-1"></p>
+                    </div>
+                    <div class="flex items-center space-x-3">
+                        <button id="skill-copy-btn" class="skill-close-btn hidden">Copy</button>
+                        <button id="skill-close" class="skill-close-btn">Close</button>
+                    </div>
+                </div>
+                <div id="skill-detail-content" class="skill-list text-gray-200"></div>
+            </div>
+
+        </section>
+
+        <!-- Certificates section (unchanged) -->
+        <section id="certificates" class="mb-24 py-12 border-t border-gray-800">
+            <h2 class="text-4xl font-bold text-center mb-12 text-white">Certification <span class="text-cyan-400">Showcase</span></h2>
+            <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+                <div class="certificate-card bg-gray-800 p-6 rounded-xl shadow-lg transition duration-500">
+                    <h3 class="text-xl font-semibold mb-3 text-cyan-400">Early Achievement in AI & Robotics Innovation</h3>
+                    
+                    <!-- Image that triggers Modal -->
+                    <img
+                        src="https://i.ibb.co/fVPr5tsm/1-award-for-ai-and-robotics.jpg"
+                        alt="Deep Learning Specialization Certificate"
+                        class="w-full h-auto rounded-lg mb-4 object-cover border border-gray-700 certificate-img"
+                        onclick="openModal(this)"
+                        onerror="this.onerror=null; this.src='https://placehold.co/600x400/1f2937/d1d5db?text=Image+Load+Error'"
+                    />
+
+                    <p class="text-gray-300 text-sm">
+                        Certification awarded for early mastery in AI and robotics, proven through the development of a sophisticated multifunctional robot.
+                    </p>
+                    <p class="text-gray-500 text-xs mt-2">Issued by: DeepLearning.AI | Date: 2022</p>
+                </div>
+
+                <!-- Certificate 2: Example Cloud ML -->
+                <div class="certificate-card bg-gray-800 p-6 rounded-xl shadow-lg transition duration-500">
+                    <h3 class="text-xl font-semibold mb-3 text-cyan-400">Ethical Hacking Certificate of Completion</h3>
+                    
+                    <!-- Image that triggers Modal -->
+                    <img
+                        src="https://i.ibb.co/zVvxj23y/offenso-heakers-ethical-hacking-certificatie.jpg"
+                        alt="Google Cloud ML Engineer Certificate"
+                        class="w-full h-auto rounded-lg mb-4 object-cover border border-gray-700 certificate-img"
+                        onclick="openModal(this)"
+                        onerror="this.onerror=null; this.src='https://placehold.co/600x400/1f2937/d1d5db?text=Image+Load+Error'"
+                    />
+
+                    
+                    <p class="text-gray-500 text-xs mt-2">Issued by: The Construct | Date: 2023</p>
+                </div>
+
+                <!-- Certificate 3: Example Robotics -->
+                <div class="certificate-card bg-gray-800 p-6 rounded-xl shadow-lg transition duration-500">
+                    <h3 class="text-xl font-semibold mb-3 text-cyan-400">Second Achievement in AI & Robotics Innovation</h3>
+                    
+                    <!-- Image that triggers Modal -->
+                    <img
+                        src="https://i.ibb.co/4ZfBqkmx/3rd-awared-for-ai-and-robotics.jpg"
+                        alt="ROS2 Developer Course Certificate"
+                        class="w-full h-auto rounded-lg mb-4 object-cover border border-gray-700 certificate-img"
+                        onclick="openModal(this)"
+                        onerror="this.onerror=null; this.src='https://placehold.co/600x400/1f2937/d1d5db?text=Image+Load+Error'"
+                    />
+
+                    <p class="text-gray-300 text-sm">
+                        Certification awarded for early mastery in AI and robotics, proven through the development of a sophisticated multifunctional robot.
+                    </p>
+                    <p class="text-gray-500 text-xs mt-2">Issued by: The Construct | Date: 2022</p>
+                </div>
+                <!-- Certificate 4: Example Robotics -->
+                <div class="certificate-card bg-gray-800 p-6 rounded-xl shadow-lg transition duration-500">
+                    <h3 class="text-xl font-semibold mb-3 text-cyan-400">Third Achievement in AI & Robotics Innovation</h3>
+                    
+                    <!-- Image that triggers Modal -->
+                    <img
+                        src="https://i.ibb.co/KpjYJMrX/second-asard-fro-ai-and-robotics.jpg"
+                        alt="ROS2 Developer Course Certificate"
+                        class="w-full h-auto rounded-lg mb-4 object-cover border border-gray-700 certificate-img"
+                        onclick="openModal(this)"
+                        onerror="this.onerror=null; this.src='https://placehold.co/600x400/1f2937/d1d5db?text=Image+Load+Error'"
+                    />
+
+                    <p class="text-gray-300 text-sm">
+                        Certification awarded for early mastery in AI and robotics, proven through the development of a sophisticated multifunctional robot.
+                    </p>
+                    <p class="text-gray-500 text-xs mt-2">Issued by: The Construct | Date: 2022</p>
+                </div>
+                <!-- Certificate 5: Example Robotics -->
+                <div class="certificate-card bg-gray-800 p-6 rounded-xl shadow-lg transition duration-500">
+                    <h3 class="text-xl font-semibold mb-3 text-cyan-400">1st Place – Advanced AI & Robotics Challenge</h3>
+                    
+                    <!-- Image that triggers Modal -->
+                    <img
+                        src="https://i.ibb.co/YFt8htbc/fist-price-for-ai-robot-copitition.jpg"
+                        alt="ROS2 Developer Course Certificate"
+                        class="w-full h-auto rounded-lg mb-4 object-cover border border-gray-700 certificate-img"
+                        onclick="openModal(this)"
+                        onerror="this.onerror=null; this.src='https://placehold.co/600x400/1f2937/d1d5db?text=Image+Load+Error'"
+                    />
+
+                    
+                    <p class="text-gray-500 text-xs mt-2">Issued by: The Construct | Date: 2023</p>
+                </div>
+            </div>
+        </section>
+
+    </main>
+
+    <!-- Footer (unchanged) -->
+    <footer id="contact" class="bg-gray-900 py-12 md:py-16 border-t border-gray-800">
+        <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+            <h2 class="text-3xl md:text-4xl font-bold mb-8 text-white">Get In <span class="text-cyan-400">Touch</span></h2>
+            <div class="flex flex-col md:flex-row justify-center space-y-6 md:space-y-0 md:space-x-12 mb-10 text-lg">
+                <div class="flex items-center justify-center space-x-3 transition duration-300 hover:text-cyan-400">
+                    <svg class="w-6 h-6 text-cyan-500" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"></path></svg>
+                    <a href="mailto:muhammedhisan28@gmail.com" class="text-gray-300 hover:underline">muhammedhisan28@gmail.com</a>
+                </div>
+                <div class="flex items-center justify-center space-x-3 transition duration-300 hover:text-cyan-400">
+                    <svg class="w-6 h-6 text-cyan-500" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 5a2 2 0 012-2h3.28a1 1 0 01.948.684l1.498 4.493a1 1 0 01-.502 1.21l-2.257 1.13a11.042 11.042 0 005.516 5.516l1.13-2.257a1 1 0 011.21-.502l4.493 1.498a1 1 0 01.684.949V19a2 2 0 01-2 2h-3.28a2 2 0 01-.684-.112l-1.498-4.493a2 2 0 01.502-1.21l-2.257-1.13a11.042 11.042 0 00-5.516-5.516l-1.13 2.257a2 2 0 01-1.21.502l-4.493-1.498A2 2 0 015 5.28V5z"></path></svg>
+                    <a href="tel:+919074457414" class="text-gray-300 hover:underline">+91 9074457414</a>
+                </div>
+            </div>
+            <p class="text-gray-500 mt-8 text-sm">Designed with <span class="text-red-500">&hearts;</span> and built with Tailwind CSS.</p>
+        </div>
+    </footer>
+
+    <!-- Certificate Modal skeleton (from your original file) -->
+    <div id="certificateModal" class="modal" style="display:none;">
+        <span class="close" onclick="closeModal()">&times;</span>
+        <img class="modal-content" id="imgModal" />
+    </div>
+
+    <script>
+        /* ---------- Project Read More (kept) ---------- */
+        function toggleDescription(id) {
+            const fullDesc = document.getElementById(`full-desc-${id}`);
+            const button = document.querySelector(`#project-desc-${id} button`);
+            if (!fullDesc || !button) return;
+            if (fullDesc.classList.contains('hidden-content')) {
+                fullDesc.classList.remove('hidden-content');
+                button.textContent = 'Read Less';
+            } else {
+                fullDesc.classList.add('hidden-content');
+                button.textContent = 'Read More';
+            }
+        }
+
+        /* ---------- Video hover (kept) ---------- */
+        function showVideo(id, videoUrl) {
+            const videoEmbedContainer = document.getElementById(`video-embed-${id}`);
+            const staticImage = document.getElementById(`static-image-${id}`);
+            const iframe = document.createElement('iframe');
+            iframe.id = `video-iframe-${id}`;
+            iframe.className = 'w-full h-full rounded-lg';
+            iframe.src = videoUrl;
+            iframe.title = 'Project Video Demonstration';
+            iframe.frameborder = '0';
+            iframe.allow = 'accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture';
+            iframe.allowfullscreen = true;
+            if (staticImage) {
+                staticImage.style.opacity = '0';
+                setTimeout(()=> {
+                    staticImage.style.display = 'none';
+                    if (!document.getElementById(`video-iframe-${id}`)) {
+                        videoEmbedContainer.appendChild(iframe);
+                    }
+                }, 300);
+            }
+        }
+        function showImage(id) {
+            const videoEmbedContainer = document.getElementById(`video-embed-${id}`);
+            const staticImage = document.getElementById(`static-image-${id}`);
+            const iframe = document.getElementById(`video-iframe-${id}`);
+            if (iframe) iframe.remove();
+            if (staticImage) {
+                staticImage.style.display = 'block';
+                setTimeout(()=> staticImage.style.opacity = '1', 50);
+            }
+        }
+
+        /* ---------- Certificate modal (kept) ---------- */
+        function openModal(imgElement) {
+            const modal = document.getElementById("certificateModal");
+            const modalImg = document.getElementById("imgModal");
+            modal.style.display = "flex";
+            modalImg.src = imgElement.src;
+            modalImg.alt = imgElement.alt;
+        }
+        function closeModal() {
+            const modal = document.getElementById("certificateModal");
+            modal.style.display = "none";
+        }
+        document.getElementById('certificateModal').onclick = function(event){
+            if (event.target === this) closeModal();
+        };
+
+        /* ---------- Skill detail data (templates) ---------- */
+        const SKILL_TEMPLATES = {
+            ml: {
+                title: 'Machine Learning — Core Topics',
+                sub: 'Supervised, unsupervised, feature engineering, model training & evaluation',
+                html: `
+                    <div>
+                        <p class="skill-section-title">Supervised Learning Models</p>
+                        <ul class="mt-2 mb-4 list-disc pl-5">
+                            <li>Classification & Regression</li>
+                            <li>SVM, Decision Trees, Random Forests</li>
+                        </ul>
+                        <p class="skill-section-title">Unsupervised Learning</p>
+                        <ul class="mt-2 mb-4 list-disc pl-5">
+                            <li>Clustering (k-means, hierarchical)</li>
+                            <li>PCA, Anomaly Detection</li>
+                        </ul>
+                        <p class="skill-section-title">Model Training & Evaluation</p>
+                        <ul class="mt-2 mb-4 list-disc pl-5">
+                            <li>Evaluation metrics (accuracy, F1, ROC-AUC, RMSE)</li>
+                            <li>Overfitting control, regularization, cross-validation</li>
+                        </ul>
+                        <p class="skill-section-title">Feature Engineering & Preprocessing</p>
+                        <ul class="mt-2 mb-4 list-disc pl-5">
+                            <li>Scaling, encoding, missing value strategies, feature selection</li>
+                        </ul>
+                        <p class="skill-section-title">ML from Scratch Implementations</p>
+                        <ul class="mt-2 list-disc pl-5">
+                            <li>Gradient descent, logistic regression, linear regression, neural networks from scratch</li>
+                        </ul>
+                    </div>
+                `
+            },
+            dl: {
+                title: 'Deep Learning — Architectures & Practice',
+                sub: 'Neural networks, training, frameworks and edge optimizations',
+                html: `
+                    <div>
+                        <p class="skill-section-title">Neural Networks</p>
+                        <ul class="mt-2 mb-4 list-disc pl-5">
+                            <li>ANN, CNN, RNN, LSTM</li>
+                        </ul>
+                        <p class="skill-section-title">Frameworks & Model Development</p>
+                        <ul class="mt-2 mb-4 list-disc pl-5">
+                            <li>PyTorch / TensorFlow model development and training</li>
+                        </ul>
+                        <p class="skill-section-title">Model Optimization for Edge Devices</p>
+                        <ul class="mt-2 mb-4 list-disc pl-5">
+                            <li>Quantization, pruning, reduced precision (INT8, mixed precision)</li>
+                        </ul>
+                        <p class="skill-section-title">Custom Dataset & Annotation</p>
+                        <ul class="mt-2 list-disc pl-5">
+                            <li>Dataset creation, augmentation, annotation pipelines</li>
+                        </ul>
+                    </div>
+                `
+            },
+            cv: {
+                title: 'Computer Vision — Techniques & Applications',
+                sub: 'Object detection, segmentation, tracking, recognition and real-time processing',
+                html: `
+                    <div>
+                        <p class="skill-section-title">Image Classification</p>
+                        <ul class="mt-2 mb-4 list-disc pl-5"><li>Transfer learning, fine-tuning, custom classifiers</li></ul>
+                        <p class="skill-section-title">Object Detection</p>
+                        <ul class="mt-2 mb-4 list-disc pl-5">
+                            <li>YOLO (v5 / v7 / v8), SSD, Faster R-CNN</li>
+                        </ul>
+                        <p class="skill-section-title">Segmentation & Tracking</p>
+                        <ul class="mt-2 mb-4 list-disc pl-5">
+                            <li>UNet, DeepLab — semantic segmentation; object tracking & multi-object tracking</li>
+                        </ul>
+                        <p class="skill-section-title">Specialized CV</p>
+                        <ul class="mt-2 list-disc pl-5">
+                            <li>Face recognition & tracking, emotion detection (healthcare robot), gesture recognition, real-time video processing</li>
+                        </ul>
+                    </div>
+                `
+            },
+            rl: {
+                title: 'Reinforcement Learning — Robotics & Control',
+                sub: 'Classical RL and deep RL for robotic tasks',
+                html: `
+                    <div>
+                        <p class="skill-section-title">Algorithms</p>
+                        <ul class="mt-2 mb-4 list-disc pl-5">
+                            <li>Q-Learning, Deep Q-Networks (DQN)</li>
+                            <li>Policy-gradient methods, actor-critic (brief familiarity)</li>
+                        </ul>
+                        <p class="skill-section-title">Practical RL for Robotics</p>
+                        <ul class="mt-2 mb-4 list-disc pl-5">
+                            <li>Reward function engineering, RL for robotics control</li>
+                        </ul>
+                        <p class="skill-section-title">Simulation & Training</p>
+                        <ul class="mt-2 list-disc pl-5">
+                            <li>Environment simulation (Gazebo, PyBullet), domain randomization, safe exploration</li>
+                        </ul>
+                    </div>
+                `
+            },
+            ros: {
+                title: 'ROS & Robotics — System-Level Skills',
+                sub: 'ROS2, navigation, sensor fusion, kinematics, and embedded deployment',
+                html: `
+                    <div>
+                        <p class="skill-section-title">ROS2 Fundamentals</p>
+                        <ul class="mt-2 mb-4 list-disc pl-5">
+                            <li>pub/sub, nodes, services, action servers</li>
+                            <li>Navigation stack, move_base / Nav2 usage</li>
+                        </ul>
+                        <p class="skill-section-title">Autonomous Navigation & Sensors</p>
+                        <ul class="mt-2 mb-4 list-disc pl-5">
+                            <li>Vision-based obstacle detection, path planning</li>
+                            <li>Sensor fusion (Camera + IMU + Ultrasonic / Lidar)</li>
+                        </ul>
+                        <p class="skill-section-title">Kinematics & Control</p>
+                        <ul class="mt-2 list-disc pl-5">
+                            <li>Forward / inverse kinematics, PID and model-based controllers</li>
+                        </ul>
+                    </div>
+                `
+            },
+            embedded: {
+                title: 'Embedded AI & Edge Deployment',
+                sub: 'Deploying models on Jetson, Raspberry Pi and microcontrollers',
+                html: `
+                    <div>
+                        <p class="skill-section-title">Edge Platforms</p>
+                        <ul class="mt-2 mb-4 list-disc pl-5">
+                            <li>NVIDIA Jetson (Nano / TX2 / Xavier), Raspberry Pi, microcontrollers</li>
+                        </ul>
+                        <p class="skill-section-title">Optimization & Deployment</p>
+                        <ul class="mt-2 mb-4 list-disc pl-5">
+                            <li>Model conversion (ONNX), TensorRT, pruning, quantization</li>
+                        </ul>
+                        <p class="skill-section-title">Sensor & System Integration</p>
+                        <ul class="mt-2 list-disc pl-5">
+                            <li>Integrating camera pipelines, real-time inference, low-latency IO</li>
+                        </ul>
+                    </div>
+                `
+            }
+        };
+
+        /* ---------- Skill panel logic ---------- */
+        const panel = document.getElementById('skill-detail-panel');
+        const titleEl = document.getElementById('skill-detail-title');
+        const subEl = document.getElementById('skill-detail-sub');
+        const contentEl = document.getElementById('skill-detail-content');
+        const closeBtn = document.getElementById('skill-close');
+
+        // Bind click handlers for each "View more" button
+        document.querySelectorAll('.skill-view-btn').forEach(btn => {
+            btn.addEventListener('click', (e) => {
+                const skillKey = btn.getAttribute('data-skill');
+                const tpl = SKILL_TEMPLATES[skillKey];
+                if (!tpl) return;
+                // Update panel content
+                titleEl.textContent = tpl.title;
+                subEl.textContent = tpl.sub;
+                contentEl.innerHTML = tpl.html;
+                // Show panel
+                panel.style.display = 'block';
+                // mark aria-expanded
+                document.querySelectorAll('.skill-view-btn').forEach(b => b.setAttribute('aria-expanded', 'false'));
+                btn.setAttribute('aria-expanded', 'true');
+                // scroll into view (nice UX on smaller screens)
+                panel.scrollIntoView({ behavior: 'smooth', block: 'center' });
+            });
+        });
+
+        // Close panel
+        closeBtn.addEventListener('click', () => {
+            panel.style.display = 'none';
+            document.querySelectorAll('.skill-view-btn').forEach(b => b.setAttribute('aria-expanded', 'false'));
+        });
+
+        // close when clicking outside the panel content (optional)
+        document.addEventListener('click', (e) => {
+            if (!panel) return;
+            if (panel.style.display === 'block') {
+                const inside = panel.contains(e.target) || e.target.matches('.skill-view-btn');
+                // if clicked outside both the panel and any view button, hide
+                if (!inside) {
+                    panel.style.display = 'none';
+                    document.querySelectorAll('.skill-view-btn').forEach(b => b.setAttribute('aria-expanded', 'false'));
+                }
+            }
+        });
+
+        /* Optional: keyboard escape to close panel */
+        document.addEventListener('keydown', (e) => {
+            if (e.key === 'Escape' && panel.style.display === 'block') {
+                panel.style.display = 'none';
+                document.querySelectorAll('.skill-view-btn').forEach(b => b.setAttribute('aria-expanded', 'false'));
+            }
+        });
+
+    </script>
+</body>
+</html>
